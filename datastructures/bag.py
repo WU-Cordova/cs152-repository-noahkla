@@ -10,8 +10,10 @@ class Bag(IBag[T]):
     def add(self, item: T) -> None:
         if item in self.b:
             self.b[item] += 1
-        else:
+        elif item != None:
             self.b[item] = 1
+        else:
+            raise ValueError
 
     def remove(self, item: T) -> None:
         if item in self.b:
