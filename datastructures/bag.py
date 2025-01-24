@@ -13,7 +13,7 @@ class Bag(IBag[T]):
         elif item != None:
             self.b[item] = 1
         else:
-            raise ValueError
+            raise TypeError
 
     def remove(self, item: T) -> None:
         if item in self.b:
