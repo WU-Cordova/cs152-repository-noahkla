@@ -14,11 +14,10 @@ class Bag(IBag[T]):
             self.b[item] = 1
 
     def remove(self, item: T) -> None:
-        if item in self.b:
-            if self.b[item] >1:
-                self.b[item] -= 1
-            else:
-                del self.b[item]
+        if self.b[item] >1:
+            self.b[item] -= 1
+        else:
+            del self.b[item]
 
     def count(self, item: T) -> int:
         return self.b[item]
