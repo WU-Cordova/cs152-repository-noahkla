@@ -1,7 +1,6 @@
 from typing import Iterable, Optional
 from datastructures.ibag import IBag, T
 
-
 class Bag(IBag[T]):
     def __init__(self, *items: Optional[Iterable[T]]) -> None:
         self.b = {}
@@ -9,20 +8,20 @@ class Bag(IBag[T]):
             self.add(item)
 
     def add(self, item: T) -> None:
-        if T in self.b:
-            self.b[T] += 1
+        if item in self.b:
+            self.b[item] += 1
         else:
-            self.b[T] = 1
+            self.b[item] = 1
 
     def remove(self, item: T) -> None:
-        if T in self.b:
-            if self.b[T] >1:
-                self.b[T] -= 1
+        if item in self.b:
+            if self.b[item] >1:
+                self.b[item] -= 1
             else:
-                del self.b[T]
+                del self.b[item]
 
     def count(self, item: T) -> int:
-        return self.b[T]
+        return self.b[item]
 
     def __len__(self) -> int:
         c = 0
