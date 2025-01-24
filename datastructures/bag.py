@@ -19,9 +19,14 @@ class Bag(IBag[T]):
                 self.b[item] -= 1
             else:
                 del self.b[item]
+        else:
+            raise ValueError
+        
 
     def count(self, item: T) -> int:
-        return self.b[item]
+        if item in self.b:
+            return self.b[item]
+        return 0
 
     def __len__(self) -> int:
         c = 0
