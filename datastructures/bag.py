@@ -37,10 +37,7 @@ class Bag(IBag[T]):
         return c
 
     def distinct_items(self) -> int:
-        items = []
-        for item in self.b:
-            items.append(item)
-        return items
+        return self.b.keys()
 
     def __contains__(self, item) -> bool:
         return item in self.b
