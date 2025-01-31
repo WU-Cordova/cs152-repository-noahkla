@@ -22,12 +22,12 @@ class Game:
             attacker (Character): The attacker.
             defender (Character): The defender. 
         """
-        v = random.randint(1, 6)
+        v = random.randint(1, 6)*attacker.attack_power
         defender.health -= v
+       
+        print(attacker.name+' attacked '+defender.name+' for '+str(v)+' damage, '+defender.name+' is at '+str(defender.health)+' health')
         if defender.health <= 0:
             print(defender.name + ' is defeated!')
-        print(attacker.name+' attacked '+defender.name+' for '+str(v)+'damage.')
-
     def start_battle(self) -> None:
         """ Starts the battle between the two players. Algorithm: 
             1. While both players are alive, do the following:
