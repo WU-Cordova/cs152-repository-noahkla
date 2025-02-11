@@ -93,6 +93,8 @@ class game:
       #  print(self.p1, self.p2)
    #     self.print_game()
 
+    #This function prints out player1's hand and points,  
+    # and the commented out part does that for player2
     def print_game(self):
         print('player 1: '+ str(self.p1))
         print('player 1 hand: ')
