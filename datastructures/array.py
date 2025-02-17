@@ -19,23 +19,26 @@ from datastructures.iarray import IArray, T
 class Array(IArray[T]):  
 
     def __init__(self, starting_sequence: Sequence[T]=[], data_type: type=object) -> None: 
-        raise NotImplementedError('Constructor not implemented.')
+        self.array = np.array(T)
+        self.local_size = 0
 
     @overload
     def __getitem__(self, index: int) -> T: ...
     @overload
     def __getitem__(self, index: slice) -> Sequence[T]: ...
     def __getitem__(self, index: int | slice) -> T | Sequence[T]:
-        raise NotImplementedError('Indexing not implemented.')
+        return self.array[T]
     
     def __setitem__(self, index: int, item: T) -> None:
-        raise NotImplementedError('Indexing not implemented.')
+        self.array[index] = item
+    
 
     def append(self, data: T) -> None:
-        raise NotImplementedError('Append not implemented.')
+        np.append(self.array, T)
+    
 
     def append_front(self, data: T) -> None:
-        raise NotImplementedError('Append front not implemented.')
+        np.insert(self.array, 0, T)
 
     def pop(self) -> None:
         raise NotImplementedError('Pop not implemented.')
@@ -53,16 +56,17 @@ class Array(IArray[T]):
         raise NotImplementedError('Iteration not implemented.')
 
     def __reversed__(self) -> Iterator[T]:
-        raise
+        self.array = self.array[::-1]
 
     def __delitem__(self, index: int) -> None:
-        raise NotImplementedError('Delete not implemented.')
+        np.delete(self.array, index)
 
     def __contains__(self, item: Any) -> bool:
-        raise NotImplementedError('Contains not implemented.')
+        return np.isin(self.array, item)
 
     def clear(self) -> None:
-        raise NotImplementedError('Clear not implemented.')
+        self.array = np.empty()
+        self.local_size = 0
 
     def __str__(self) -> str:
         return '[' + ', '.join(str(item) for item in self) + ']'
