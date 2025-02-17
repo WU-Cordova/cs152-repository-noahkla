@@ -18,7 +18,9 @@ from datastructures.iarray import IArray, T
 
 class Array(IArray[T]):  
 
-    def __init__(self, starting_sequence: Sequence[T]=[], data_type: type=object) -> None: 
+    def __init__(self, starting_sequence: Sequence[T]=[], data_type: type=object) -> None:
+        if isinstance(T, Sequence):
+            raise ValueError
         self.array = np.array(T)
         self.local_size = 0
 
