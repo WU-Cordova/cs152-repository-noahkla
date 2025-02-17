@@ -36,6 +36,10 @@ class Array(IArray[T]):
         return self.array[T]
     
     def __setitem__(self, index: int, item: T) -> None:
+        if index >np.size(self.array):
+            raise IndexError
+        if T.type() != self.array.dtype():
+            raise TypeError
         self.array[index] = item
     
 
