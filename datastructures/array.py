@@ -56,13 +56,13 @@ class Array(IArray[T]):
         np.insert(self.array, 0, T)
 
     def pop(self) -> None:
-        raise NotImplementedError('Pop not implemented.')
+        np.delete(self.array, -1)
     
     def pop_front(self) -> None:
-        raise NotImplementedError('Pop front not implemented.')
+        np.delete(self.array, 0)
 
     def __len__(self) -> int: 
-        raise NotImplementedError('Length not implemented.')
+        return len(self.array)
 
     def __eq__(self, other: object) -> bool:
         raise NotImplementedError('Equality not implemented.')
