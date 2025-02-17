@@ -33,6 +33,10 @@ class Array(IArray[T]):
     @overload
     def __getitem__(self, index: slice) -> Sequence[T]: ...
     def __getitem__(self, index: int | slice) -> T | Sequence[T]:
+        if index > np.size(self.array):
+            raise IndexError
+        if not isinstance(index, int) and not isinstance(index, slice):
+            raise TypeError
         return self.array[T]
     
     def __setitem__(self, index: int, item: T) -> None:
