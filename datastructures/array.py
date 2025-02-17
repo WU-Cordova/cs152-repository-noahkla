@@ -21,6 +21,8 @@ class Array(IArray[T]):
     def __init__(self, starting_sequence: Sequence[T]=[], data_type: type=object) -> None: 
         if not isinstance(data_type, object):
             raise TypeError
+        if not isinstance(T, data_type):
+            raise TypeError
         if not isinstance(T, Sequence):
             raise ValueError
 
