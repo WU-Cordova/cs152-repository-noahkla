@@ -11,7 +11,17 @@ class Array2D(IArray2D[T]):
 
     class Row(IArray2D.IRow[T]):
         def __init__(self, row_index: int, array: IArray, num_columns: int) -> None:
-            raise NotImplementedError('Row.__init__ not implemented.')
+            self.data_type = data_type
+            self.rows_len = len(starting_sequence)
+            self.cols_len = len(starting_sequence[0])
+            py_list = []
+            for row in range(self.rows_len):
+                for col in range(self.cols_len):
+                    py_list.append(starting_sequence[row][col])
+            
+            self.elements2d = array(starting_sequence = pylist, data_type = data_type)
+            
+
 
         def __getitem__(self, column_index: int) -> T:
             raise NotImplementedError('Row.__getitem__ not implemented.')
