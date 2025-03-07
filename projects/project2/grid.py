@@ -24,7 +24,7 @@ class Grid:
         return count
     
     def __eq__(self, value):
-        if isinstance(value, Grid) and self.fows == value.rows and self.cols == value.cols:
+        if isinstance(value, Grid) and self.rows == value.rows and self.cols == value.cols:
             return self.grid == value.grid
         return False
 
