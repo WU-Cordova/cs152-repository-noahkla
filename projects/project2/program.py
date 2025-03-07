@@ -1,7 +1,8 @@
 
 from projects.project2.cell import Cell
-from projects.projects2grid import Grid
+#from projects.project2.grid import Grid
 from projects.project2.gamecontroller import GameController
+from datastructures.array2d import Array2D
 def main():
     
     print("Hello, World!")

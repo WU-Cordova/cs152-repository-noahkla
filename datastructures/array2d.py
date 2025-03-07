@@ -10,7 +10,7 @@ from datastructures.iarray2d import IArray2D, T
 class Array2D(IArray2D[T]):
 
     class Row(IArray2D.IRow[T]):
-        def __init__(self, row_index: int, array: IArray, num_columns: int) -> None:
+        def __init__(self, data_type = object row_index: int, array: IArray, num_columns: int, starting_sequence = Sequence[Sequence[T]]=[[]]) -> None:
             self.data_type = data_type
             self.rows_len = len(starting_sequence)
             self.cols_len = len(starting_sequence[0])
@@ -19,7 +19,7 @@ class Array2D(IArray2D[T]):
                 for col in range(self.cols_len):
                     py_list.append(starting_sequence[row][col])
             
-            self.elements2d = array(starting_sequence = pylist, data_type = data_type)
+            self.elements2d = array(starting_sequence = py_list, data_type = data_type)
             
 
 
@@ -33,7 +33,7 @@ class Array2D(IArray2D[T]):
             return iter[self.elements2d]
         
         def __reversed__(self) -> Iterator[T]:
-            return iter(elemenst2d[::-1])
+            return iter(self.elemenst2d[::-1])
 
         def __len__(self) -> int:
             return len(self.rows_len)
@@ -46,11 +46,14 @@ class Array2D(IArray2D[T]):
 
 
     def __init__(self, starting_sequence: Sequence[Sequence[T]]=[[]], data_type=object) -> None:
-        
+        self.array = Array()
+        for i in range(len(starting_sequence)):
+            self.array.append(self.Row(self, i, len(starting_sequence[0])))
+                self.array[i].__setitem__(starting_sequence[i])
 
     @staticmethod
-    def empty(rows: int=0, cols: int=0, data_type: type=object) -> Array2D:
-        raise NotImplementedError('Array2D.empty not implemented.')
+    def empty(self, rows: int=0, cols: int=0, data_type: type=object) -> Array2D:
+        self.array = Array()
 
     def __getitem__(self, row_index: int) -> Array2D.IRow[T]: 
         raise NotImplementedError('Array2D.__getitem__ not implemented.')
