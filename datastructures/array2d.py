@@ -24,19 +24,19 @@ class Array2D(IArray2D[T]):
 
 
         def __getitem__(self, column_index: int) -> T:
-            raise NotImplementedError('Row.__getitem__ not implemented.')
+            return self.elements2d[column_index]
         
         def __setitem__(self, column_index: int, value: T) -> None:
-            raise NotImplementedError('Row.__setitem__ not implemented.')
+            self.elements2d[column_index] = value
         
         def __iter__(self) -> Iterator[T]:
-            raise NotImplementedError('Row.__iter__ not implemented.')
+            return iter[self.elements2d]
         
         def __reversed__(self) -> Iterator[T]:
-            raise NotImplementedError('Row.__reversed__ not implemented.')
+            return iter(elemenst2d[::-1])
 
         def __len__(self) -> int:
-            return self.num_columns
+            return len(self.rows_len)
         
         def __str__(self) -> str:
             return f"[{', '.join([str(self[column_index]) for column_index in range(self.num_columns)])}]"
@@ -46,7 +46,7 @@ class Array2D(IArray2D[T]):
 
 
     def __init__(self, starting_sequence: Sequence[Sequence[T]]=[[]], data_type=object) -> None:
-        raise NotImplementedError('Array2D.__init__ not implemented.')
+        
 
     @staticmethod
     def empty(rows: int=0, cols: int=0, data_type: type=object) -> Array2D:
