@@ -1,7 +1,7 @@
 from __future__ import annotations
 import os
 from typing import Iterator, Sequence
-
+from numpy import np
 from datastructures.iarray import IArray
 from datastructures.array import Array
 from datastructures.iarray2d import IArray2D, T
@@ -44,12 +44,14 @@ class Array2D(IArray2D[T]):
         self.data_type = data_type
         self.rows_len = len(starting_sequence)
         self.cols_len = len(starting_sequence[0])
-        py_list = []
+        print('starting')
+        self.array = np.array()
+
         for row in range(self.rows_len):
-            for col in range(self.cols_len):
-                    py_list.append(starting_sequence[row][col])
-            
-            self.array = Array(starting_sequence = py_list, data_type = data_type)
+          #  for col in range(self.cols_len):
+           #         py_list.append(starting_sequence[row][col])
+
+            self.array.append(self.Row(starting_sequence[row]))
       #  self.array = Array()
        # for i in range(len(starting_sequence)):
         #    self.array.append(self.Row(self, i, len(starting_sequence[0])))
@@ -57,19 +59,19 @@ class Array2D(IArray2D[T]):
 
     @staticmethod
     def empty(self, rows: int=0, cols: int=0, data_type: type=object) -> Array2D:
-        self.array = Array()
+        self.array = Array2D()
 
     def __getitem__(self, row_index: int) -> Array2D.IRow[T]: 
-        raise NotImplementedError('Array2D.__getitem__ not implemented.')
+        return self.array[row_index]
     
     def __iter__(self) -> Iterator[Sequence[T]]: 
-        raise NotImplementedError('Array2D.__iter__ not implemented.')
+        return iter(self.array)
     
     def __reversed__(self):
-        raise NotImplementedError('Array2D.__reversed__ not implemented.')
+        return iter(self.array[::-1])
     
     def __len__(self): 
-        raise NotImplementedError('Array2D.__len__ not implemented')
+        return self.rows_len
                                   
     def __str__(self) -> str: 
         return f'[{", ".join(f"{str(row)}" for row in self)}]'

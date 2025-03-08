@@ -3,7 +3,8 @@ class Cell:
         self.is_alive = is_alive
 
     def next_state(self, num_neighboors):
-        if num_neighboors == 0 or num_neighboors ==1 or num_neighboors >= 4:
+        
+        if num_neighboors == 0 or num_neighboors ==1 or num_neighboors ==4 or num_neighboors == 5 or num_neighboors == 6 or num_neighboors ==7 or num_neighboors == 8:
             a = False
         if num_neighboors == 3:
             a = True

@@ -34,12 +34,14 @@ class Grid:
                        # print(self.grid[row+i-1][col+j-1].is_alive)
                 except:
                     pass
-            
+        return count        
     def __eq__(self, value):
-        if isinstance(value, Grid) and self.rows == value.rows and self.cols == value.cols:
-            for r in range(self.rows):
-                if self.grid[r] != value.grid[r]:
+        
+        for i in range(self.rows):
+            for j in range(self.cols):
+                if self.grid[i][j].is_alive != value.grid[i][j].is_alive:
                     return False
+       
         return True
 
     def next_generation(self):
@@ -49,6 +51,8 @@ class Grid:
             for col in range(self.cols):
               #  self.grid[row][col]
                 num_neighboors = self.get_neighboors(row, col)
+                if num_neighboors == None:
+                    print('Issue!!!')
                 next_state = self.grid[row][col].next_state(num_neighboors)
                 next_grid.grid[row][col].is_alive = next_state
     #    next_grid.display()
