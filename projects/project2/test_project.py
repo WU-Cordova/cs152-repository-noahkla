@@ -1,6 +1,28 @@
 import random
 import numpy as np
-from projects.project2.cell import Cell
+#from projects.project2.cell import Cell
+#from datastructures.array2d import Array2D
+class Cell:
+    def __init__(self, is_alive):
+        self.is_alive = is_alive
+
+    def next_state(self, num_neighboors):
+        if num_neighboors == 0 or num_neighboors ==1 or num_neighboors >= 4:
+            a = False
+        if num_neighboors == 3:
+            a = True
+        if num_neighboors == 2:
+            a = self.is_alive
+     #   print(a)
+        return a
+    def show_cell(self):
+        if self.is_alive == True:
+            print('🦠', end = '')
+        else:
+            print('X', end = ' ')
+        
+        
+        
 class Grid:
     def __init__(self, rows: int=10, cols: int = 10):
       #  self.grid.ArrayD[Cell] = Array2D.empty(rows, cols, data_type = Cell)
@@ -35,6 +57,11 @@ class Grid:
                 except:
                     pass
             
+       
+
+
+        return count
+    
     def __eq__(self, value):
         if isinstance(value, Grid) and self.rows == value.rows and self.cols == value.cols:
             for r in range(self.rows):
@@ -53,6 +80,34 @@ class Grid:
                 next_grid.grid[row][col].is_alive = next_state
     #    next_grid.display()
         return next_grid
+from time import sleep
+from kbhit import KBHit
 
-
-        return count
+class GameController:
+    def __init__(self):
+        self.grid = Grid()
+        self.history = Grid()
+    def run(self):
+       # kbhit = KBHit.kbhit()
+        g = 1
+        while True:
+            print('Generation '+ str(g))
+            g += 1
+            self.grid.display()
+            self.history = self.grid
+            self.grid = self.grid.next_generation()
+            #if self.grid == self.history:
+            if g >25:
+                return
+            sleep(1)
+            #if kbhit:
+             #   pass
+#g = Grid()
+#g.display()
+#print(g.get_neighboors(9, 9))
+#g = g.next_generation()
+#g.display()
+#g = g.next_generation()
+#g = g.next_generation()
+g = GameController()
+g.run()
