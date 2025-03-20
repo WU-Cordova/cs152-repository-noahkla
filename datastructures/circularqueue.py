@@ -171,6 +171,8 @@ class CircularQueue(IQueue[T]):
         if self.f == other.f and self.rear == other.rear:
             x = set()
             y = set()
+            print(x)
+            print(y)
             for i in self.q:
                 x.add(i)
             for i in other.q:
