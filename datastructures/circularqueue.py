@@ -155,9 +155,15 @@ class CircularQueue(IQueue[T]):
         '''
         if self.q[self.front] == other.front() and self.q[self.rear] == other.q[other.rear]:
             if self.front == other.front and self.rear == other.rear:
+                x = set()
+                y = set()
                 for i in self.q:
-                    return
+                    x.add(i)
+                for i in other.q:
+                    y.add(i)
+                return x==y
                     #if i not in oth
+        return False
     
     def __len__(self) -> int:
         ''' Returns the number of items in the queue
