@@ -21,7 +21,7 @@ class ArrayStack(IStack[T]):
     def push(self, item: T) -> None:
         self.a.append(item)
 
-    def pop(self) -> T:
+    def pop(self):
        return self.a.pop()
 
     def clear(self) -> None:
