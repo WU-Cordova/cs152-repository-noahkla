@@ -70,8 +70,10 @@ class ArrayStack(IStack[T]):
     def __contains__(self, item: T) -> bool:
        return item in self.a
 
-    def __str__(self) -> str:
-        return str([self.stack[i] for i in range(self._top)])
+   # def __str__(self) -> str:
+    #    return str([self.stack[i] for i in range(self._top)])
+    def str:
+        return str(self.a)
     
     def __repr__(self) -> str:
         return f"ArrayStack({self.maxsize}): items: {str(self)}"
