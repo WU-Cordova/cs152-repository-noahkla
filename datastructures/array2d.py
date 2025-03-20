@@ -1,7 +1,7 @@
 from __future__ import annotations
 import os
 from typing import Iterator, Sequence
-from numpy import np
+#from numpy import np
 from datastructures.iarray import IArray
 from datastructures.array import Array
 from datastructures.iarray2d import IArray2D, T
