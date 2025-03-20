@@ -21,7 +21,9 @@ class CircularQueue(IQueue[T]):
       #  self.q = Array([None]*(maxsize+1))
         self.q = [None]*(maxsize+1)
         self.rear = 0
-        self.front = 0
+        print('running')
+        int: self.front = 0
+        print('still running!')
         self.max_size = maxsize
 
     def enqueue(self, item: T) -> None:
@@ -193,7 +195,7 @@ class CircularQueue(IQueue[T]):
         '''
         return f'ArrayQueue({repr(self.circularqueue)})'
                                   
-    @front.setter
-    def front(self, f):
-        self.front = f
+   # @front.setter
+ #   def front(self, f):
+     #   self.front = f
 
