@@ -52,7 +52,7 @@ class CircularQueue(IQueue[T]):
         if self.full():
             raise IndexError
         self.q[self.rear] = T
-        #self.rear = (self.rear+1)%(self.max_size+1)
+        self.rear = (self.rear+1)%(self.max_size+1)
 
 
     def dequeue(self) -> T:
@@ -84,7 +84,7 @@ class CircularQueue(IQueue[T]):
             raise IndexError
         i = self.q[self.front]
         self.q[self.front] = None
-        self.front = (self.fornt+1)%(self.max_size+1)
+        self.front = (self.front+1)%(self.max_size+1)
         return i
 
     def clear(self) -> None:
