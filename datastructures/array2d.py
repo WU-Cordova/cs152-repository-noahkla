@@ -48,7 +48,7 @@ class Array2D(IArray2D[T]):
         self.cols_len = len(starting_sequence[0])
 
         print('starting')
-        self.array = np.array()
+        self.array = []
 
         for row in range(self.rows_len):
             
