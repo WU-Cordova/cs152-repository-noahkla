@@ -23,6 +23,17 @@ class CircularQueue(IQueue[T]):
         self.rear = 0
         self.f = 0
         self.max_size = maxsize
+    @property
+    def full(self) -> bool:
+        ''' Returns True if the queue is full, False otherwise 
+
+        Returns:
+            True if the queue is full, False otherwise
+        '''
+        for i in self.q:
+            if i == None:
+                return False
+        return True   
 
     def enqueue(self, item: T) -> None:
         ''' Adds an item to the rear of the queue
@@ -108,17 +119,7 @@ class CircularQueue(IQueue[T]):
         return self.q[self.f]
         
 
-    @property
-    def full(self) -> bool:
-        ''' Returns True if the queue is full, False otherwise 
         
-            Returns:
-                True if the queue is full, False otherwise
-        '''
-        for i in self.q:
-            if i == None:
-                return False
-        return True        
 
     @property
     def empty(self) -> bool:
