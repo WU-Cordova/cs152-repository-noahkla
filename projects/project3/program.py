@@ -8,7 +8,7 @@ def main():
     q.enqueue(8)
     q.enqueue(7)
     print(q.dequeue())
-    q.front()
+    #q.front()
 
 
 
