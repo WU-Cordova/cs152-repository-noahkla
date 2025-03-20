@@ -58,7 +58,7 @@ class ArrayStack(IStack[T]):
     @property
     def empty(self) -> bool:
         for i in self.a:
-            if a != None:
+            if i != None:
                 return False
         return True
     def __eq__(self, other: object) -> bool:
@@ -72,7 +72,7 @@ class ArrayStack(IStack[T]):
 
    # def __str__(self) -> str:
     #    return str([self.stack[i] for i in range(self._top)])
-    def str:
+    def __str__(self):
         return str(self.a)
     
     def __repr__(self) -> str:
