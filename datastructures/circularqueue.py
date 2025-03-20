@@ -168,15 +168,15 @@ class CircularQueue(IQueue[T]):
             Returns:
                 True if this CircularQueue is equal to another object, False otherwise
         '''
-        if self.f == other.f and self.rear == other.rear:
-            x = set()
-            y = set()
-            for i in self.q[self.f:self.r]:
-                x.add(i)
-            for i in other.q[other.f:other.r]:
-                y.add(i)
-            return x==y
-                #if i not in oth
+            if self.f == other.f and self.rear == other.rear:
+                x = set()
+                y = set()
+                for i in self.q:
+                    x.add(i)
+                for i in other.q:
+                    y.add(i)
+                return x==y
+                    #if i not in oth
         return False
     
     def __len__(self) -> int:
