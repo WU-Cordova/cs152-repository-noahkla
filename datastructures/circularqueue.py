@@ -18,7 +18,8 @@ class CircularQueue(IQueue[T]):
                 maxsize: The maximum size of the queue
                 data_type: The type of the elements in the queue
         '''
-        self.q = Array([None]*(maxsize+1))
+      #  self.q = Array([None]*(maxsize+1))
+        self.q = [None]*(maxsize+1)
         self.rear = 0
         self.front = 0
         self.max_size = maxsize
