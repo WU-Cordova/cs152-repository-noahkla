@@ -13,9 +13,10 @@ class ArrayStack(IStack[T]):
             Arguments: 
                 max_size: int -- The maximum size of the stack. 
                 data_type: type -- The data type of the stack.       
-        '''
-        raise NotImplementedError('ArrayStack is not implemented')
 
+        '''
+        self.max_size = max_size
+        #elf.a = Array]*)
     def push(self, item: T) -> None:
         raise NotImplementedError
 
