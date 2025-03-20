@@ -22,7 +22,7 @@ class CircularQueue(IQueue[T]):
         self.q = [None]*(maxsize+1)
         self.rear = 0
         print('running')
-        int: self.front = 0
+        self.f = 0
         print('still running!')
         self.max_size = maxsize
 
@@ -84,9 +84,9 @@ class CircularQueue(IQueue[T]):
         '''
         if self.empty():
             raise IndexError
-        i = self.q[self.front]
-        self.q[self.front] = None
-        self.front = (self.front+1)%(self.max_size+1)
+        i = self.q[self.f]
+        self.q[self.f] = None
+        self.f = (self.f+1)%(self.max_size+1)
         return i
 
     def clear(self) -> None:
@@ -107,7 +107,7 @@ class CircularQueue(IQueue[T]):
         '''
         if self.empty():
             raise IndexError
-        return self.q[self.front]
+        return self.q[self.f]
         
 
     @property
@@ -156,8 +156,8 @@ class CircularQueue(IQueue[T]):
             Returns:
                 True if this CircularQueue is equal to another object, False otherwise
         '''
-        if self.q[self.front] == other.front() and self.q[self.rear] == other.q[other.rear]:
-            if self.front == other.front and self.rear == other.rear:
+        if self.q[self.f] == other.f() and self.q[self.rear] == other.q[other.rear]:
+            if self.f == other.f and self.rear == other.rear:
                 x = set()
                 y = set()
                 for i in self.q:
