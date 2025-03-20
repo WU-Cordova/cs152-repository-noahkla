@@ -95,7 +95,7 @@ class CircularQueue(IQueue[T]):
             Raises:
                 IndexError: If the queue is empty
         '''
-        if self.empty():
+        if self.empty:
             raise IndexError
         i = self.q[self.f]
         self.q[self.f] = None

@@ -6,7 +6,7 @@ def main():
     q = CircularQueue(5)
     print("Hello, World!")
     q.enqueue(8)
-    q.enque(78)
+    q.enqueue(7)
     print(q.dequeue())
     q.front()
 
