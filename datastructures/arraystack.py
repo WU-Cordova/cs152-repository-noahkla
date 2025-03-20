@@ -51,7 +51,10 @@ class ArrayStack(IStack[T]):
 
     @property
     def empty(self) -> bool:
-        raise NotImplementedError
+        for i in self.a:
+            if a != None:
+                return False
+        return True
     def __eq__(self, other: object) -> bool:
        return self.a == other.a
 

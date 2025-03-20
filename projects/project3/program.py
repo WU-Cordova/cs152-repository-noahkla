@@ -17,9 +17,10 @@ def main():
     s.push(1)
     s.push(2)
     s.push(3)
-    print(s.peek())
     s.pop()
     print(s.pop())
+   # print(s.peek())
+    s.empty
    # q = CircularQueue(5)
     print("Hello, World!")
     #q.enqueue(8)
