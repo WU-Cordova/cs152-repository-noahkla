@@ -193,3 +193,6 @@ class CircularQueue(IQueue[T]):
         '''
         return f'ArrayQueue({repr(self.circularqueue)})'
                                   
+    def set_front(self, f):
+        self.front = f
+
