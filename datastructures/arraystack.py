@@ -16,15 +16,16 @@ class ArrayStack(IStack[T]):
 
         '''
         self.max_size = max_size
+        self.a = []
         #elf.a = Array]*)
     def push(self, item: T) -> None:
-        raise NotImplementedError
+        self.a.appeend(item)
 
     def pop(self) -> T:
-       raise NotImplementedError
+       self.a.pop()
 
     def clear(self) -> None:
-       raise NotImplementedError
+       self.a = []
     @property
     def peek(self) -> T:
        raise NotImplementedError
@@ -36,7 +37,7 @@ class ArrayStack(IStack[T]):
             Returns:
                 int: The maximum size of the stack.
         '''
-        raise NotImplementedError    
+        return self.max_size    
     @property
     def full(self) -> bool:
         ''' Returns True if the stack is full, False otherwise. 
@@ -44,19 +45,21 @@ class ArrayStack(IStack[T]):
             Returns:
                 bool: True if the stack is full, False otherwise.
         '''
-        raise NotImplementedError
+        if len(self.a) >= self.max_size:
+            return True
+        return False
 
     @property
     def empty(self) -> bool:
         raise NotImplementedError
     def __eq__(self, other: object) -> bool:
-       raise NotImplementedError
+       return self.a == other.a
 
     def __len__(self) -> int:
-       raise NotImplementedError
+       return len(self.a)
     
     def __contains__(self, item: T) -> bool:
-       raise NotImplementedError
+       return item in self.a
 
     def __str__(self) -> str:
         return str([self.stack[i] for i in range(self._top)])

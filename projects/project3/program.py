@@ -7,6 +7,8 @@ def main():
     print("Hello, World!")
     q.enqueue(8)
     q.enqueue(7)
+    print(q.q[1])
+
     print(q.dequeue())
     #q.front()
 
