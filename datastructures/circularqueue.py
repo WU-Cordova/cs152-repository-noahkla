@@ -30,10 +30,13 @@ class CircularQueue(IQueue[T]):
         Returns:
             True if the queue is full, False otherwise
         '''
+        x = 0
         for i in self.q:
-            if i == None:
-                return False
-        return True   
+            if i != None:
+                x += 1
+        if x >= self.max_size:
+            return True
+        return False  
 
     def enqueue(self, T) -> None:
         ''' Adds an item to the rear of the queue
