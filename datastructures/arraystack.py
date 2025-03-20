@@ -18,8 +18,8 @@ class ArrayStack(IStack[T]):
         self.max_size = max_size
         self.a = []
         #elf.a = Array]*)
-    def push(self, .shfa.shfa,,ha,ha,ah,ah,ha,hitem: T) -> None:
-        self.a.appe.shfa.shfa,,ha,ha,ah,ah,ha,hnd(item)
+    def push(self, item: T) -> None:
+        self.a.append(item)
 
     def pop(self) -> T:
        return self.a.pop()
