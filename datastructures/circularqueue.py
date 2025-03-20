@@ -60,7 +60,11 @@ class CircularQueue(IQueue[T]):
             Raises:
                 IndexError: If the queue is full
         '''
-        if self.full():
+        b = True
+        for i in self.q:
+            if i == None:
+                b = False
+        if b:           
             raise IndexError
         self.q[self.rear] = T
         self.rear = (self.rear+1)%(self.max_size+1)
