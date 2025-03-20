@@ -28,7 +28,7 @@ class ArrayStack(IStack[T]):
        self.a = []
     @property
     def peek(self) -> T:
-       return self.a[len(a)-1]
+       return self.a[len(self.a)-1]
 
     @property
     def maxsize(self) -> int:

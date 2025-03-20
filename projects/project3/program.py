@@ -1,15 +1,23 @@
 from datastructures.circularqueue import CircularQueue
+from datastructures.arraystack import ArrayStack
 
 
 def main():
     print('hello world')
-    q = CircularQueue(5)
+    s = ArrayStack()
+    s.push(1)
+    s.push(2)
+    s.push(3)
+    print(s.peek())
+    s.pop()
+    s.pop()
+   # q = CircularQueue(5)
     print("Hello, World!")
-    q.enqueue(8)
-    q.enqueue(7)
-    print(q.q[1])
+   # q.enqueue(8)
+   # q.enqueue(7)
+   # print(q.q[1])
 
-    print(q.dequeue())
+   # print(q.dequeue())
     #q.front()
 
 
