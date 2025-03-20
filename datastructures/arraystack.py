@@ -19,6 +19,12 @@ class ArrayStack(IStack[T]):
         self.a = []
         #elf.a = Array]*)
     def push(self, item: T) -> None:
+        x = 0
+        for i in self.a:
+            if i != None:
+                x += 1
+        if x>= max_size:
+            raise IndexError
         self.a.append(item)
 
     def pop(self):
