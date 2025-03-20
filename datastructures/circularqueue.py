@@ -194,6 +194,6 @@ class CircularQueue(IQueue[T]):
         return f'ArrayQueue({repr(self.circularqueue)})'
                                   
     @front.setter
-    def set_front(self, f):
+    def front(self, f):
         self.front = f
 
