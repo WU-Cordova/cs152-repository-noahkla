@@ -23,7 +23,7 @@ class ArrayStack(IStack[T]):
         for i in self.a:
             if i != None:
                 x += 1
-        if x>= max_size:
+        if x>= self.max_size:
             raise IndexError
         self.a.append(item)
 
