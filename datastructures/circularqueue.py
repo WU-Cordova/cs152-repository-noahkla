@@ -179,6 +179,7 @@ class CircularQueue(IQueue[T]):
                 y.add(i)
             return x==y
                 #if i not in oth
+        print('different front and rear')
         return False
     
     def __len__(self) -> int:
