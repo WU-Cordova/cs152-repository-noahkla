@@ -180,6 +180,8 @@ class CircularQueue(IQueue[T]):
             return x==y
                 #if i not in oth
         print('different front and rear')
+        print(self.f, self.r)
+        print(other.f, other.r)
         return False
     
     def __len__(self) -> int:
