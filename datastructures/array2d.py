@@ -41,17 +41,27 @@ class Array2D(IArray2D[T]):
 
 
     def __init__(self, starting_sequence: Sequence[Sequence[T]]=[[]], data_type=object) -> None:
+        if not isinstance(starting_sequence, Sequence):
+            raise ValueError
         self.data_type = data_type
         self.rows_len = len(starting_sequence)
         self.cols_len = len(starting_sequence[0])
+
         print('starting')
         self.array = np.array()
 
         for row in range(self.rows_len):
+            
           #  for col in range(self.cols_len):
            #         py_list.append(starting_sequence[row][col])
 
+            if len(starting_sequence[row]) != self.rows_len:
+                raise ValueError
             self.array.append(self.Row(starting_sequence[row]))
+            for i in starting_sequence[row]:
+                if i.type != data_type:
+                    raise ValueError
+
       #  self.array = Array()
        # for i in range(len(starting_sequence)):
         #    self.array.append(self.Row(self, i, len(starting_sequence[0])))
