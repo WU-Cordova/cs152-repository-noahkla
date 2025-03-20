@@ -35,7 +35,7 @@ class CircularQueue(IQueue[T]):
                 return False
         return True   
 
-    def enqueue(self, item: T) -> None:
+    def enqueue(self, T) -> None:
         ''' Adds an item to the rear of the queue
 
             Examples:
@@ -67,6 +67,8 @@ class CircularQueue(IQueue[T]):
         if b:           
             raise IndexError
         self.q[self.rear] = T
+        print(T)
+        print(self.q[self.rear])
         self.rear = (self.rear+1)%(self.max_size+1)
 
 
