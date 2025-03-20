@@ -140,8 +140,8 @@ class CircularQueue(IQueue[T]):
         '''
         for i in self.q:
             if i != None:
-                return True
-        return False
+                return False
+        return True
     
     @property
     def maxsize(self) -> int:
