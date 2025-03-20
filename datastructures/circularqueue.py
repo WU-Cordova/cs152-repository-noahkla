@@ -93,7 +93,7 @@ class CircularQueue(IQueue[T]):
         ''' Removes all items from the queue '''
         self.q = Array([None]*(self.maxsize+1))
         self.rear = 0
-        self.front = 0
+        self.f = 0
 
     @property
     def front(self) -> T:
