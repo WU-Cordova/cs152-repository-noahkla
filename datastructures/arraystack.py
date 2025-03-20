@@ -19,7 +19,7 @@ class ArrayStack(IStack[T]):
         self.a = []
         #elf.a = Array]*)
     def push(self, item: T) -> None:
-        self.a.appeend(item)
+        self.a.append(item)
 
     def pop(self) -> T:
        self.a.pop()
