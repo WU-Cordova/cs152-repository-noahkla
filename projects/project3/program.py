@@ -6,8 +6,8 @@ from datastructures.array import Array
 
 def main():
     print('hello world')
-   # a = Array([1, 2, 3])
-    #print(a)
+    a = Array([[]])
+    print(a)
    # a.append(5)
   #  print(a)
   #  t = TestArrayStack()
