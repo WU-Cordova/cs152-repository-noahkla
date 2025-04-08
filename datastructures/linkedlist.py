@@ -102,10 +102,12 @@ class LinkedList[T](ILinkedList[T]):
         raise NotImplementedError("LinkedList.__contains__ is not implemented")
 
     def __iter__(self) -> ILinkedList[T]:
-        raise NotImplementedError("LinkedList.__iter__ is not implemented")
+        self.travel_node = self.head
+        return self
 
     def __next__(self) -> T:
-        raise NotImplementedError("LinkedList.__next__ is not implemented")
+        self.travel_node = self.travel_node.next
+        return self
     
     def __reversed__(self) -> ILinkedList[T]:
         raise NotImplementedError("LinkedList.__reversed__ is not implemented")
