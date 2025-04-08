@@ -9,7 +9,7 @@ from __future__ import annotations
 from collections.abc import Sequence
 import os
 from typing import Any, Iterator, overload
-#import numpy as np
+import numpy as np
 from numpy.typing import NDArray
 
 
