@@ -15,7 +15,8 @@ class LinkedList[T](ILinkedList[T]):
         previous: Optional[LinkedList.Node] = None
 
     def __init__(self, data_type: type = object) -> None:
-        self.head = self.tail = None
+        self.head: Optional[LinkedList.Node] = None
+        self.tail: Optional[LinkedList.Node] = None
         self.count = 0
 
     @staticmethod
@@ -25,6 +26,10 @@ class LinkedList[T](ILinkedList[T]):
 
     def append(self, item: T) -> None:
         new_node = LinkedList.Node(item)
+        if self.count == 0:
+            self.tail = self.head = new_node
+            self.count += 1
+            return
         new_node.previous = self.tail
         self.tail.next = new_node
         self.tail = new_node
