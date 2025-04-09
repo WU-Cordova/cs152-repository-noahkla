@@ -98,13 +98,17 @@ class LinkedList[T](ILinkedList[T]):
         return self.count == 0
 
     def __len__(self) -> int:
-        raise NotImplementedError("LinkedList.__len__ is not implemented")
+        return self.count
 
     def clear(self) -> None:
-        raise NotImplementedError("LinkedList.clear is not implemented")
+        self.tail = self.head = None
 
     def __contains__(self, item: T) -> bool:
-        raise NotImplementedError("LinkedList.__contains__ is not implemented")
+        n = self.head
+        while n:
+            if n.data == item:
+                return True
+        return False
 
     def __iter__(self) -> ILinkedList[T]:
         self.travel_node = self.head
