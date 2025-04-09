@@ -52,13 +52,28 @@ class LinkedList[T](ILinkedList[T]):
         raise NotImplementedError("LinkedList.insert_before is not implemented")
 
     def insert_after(self, target: T, item: T) -> None:
-        raise NotImplementedError("LinkedList.insert_after is not implemented")
+        new_node = 
+        n = self.head
+        while n:
+            if n.data == item:
+                
 
     def remove(self, item: T) -> None:
-        raise NotImplementedError("LinkedList.remove is not implemented")
+        n = self.head
+        while n:
+            if n.data == item:
+                n.previous.next = n.next
+                n.next.previous = n.previous
+                self.count -= 1
+                return
 
     def remove_all(self, item: T) -> None:
-        raise NotImplementedError("LinkedList.remove_all is not implemented")
+        n = self.head
+        while n:
+            if n.data == item:
+                n.previous.next = n.next
+                n.next.previous = n.previous
+                self.count -= 1
 
     def pop(self) -> T:
         if self.count == 0:
@@ -121,6 +136,8 @@ class LinkedList[T](ILinkedList[T]):
         return self
 
     def __next__(self) -> T:
+        if self.travel_node is None:
+            raise StopIteration
         self.travel_node = self.travel_node.next
         return self
     
