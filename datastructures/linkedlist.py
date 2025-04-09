@@ -170,7 +170,17 @@ class LinkedList[T](ILinkedList[T]):
 
     
     def __eq__(self, other: object) -> bool:
-        raise NotImplementedError("LinkedList.__eq__ is not implemented")
+        l = []
+        n = self.head
+        while n:
+            l.append(n)
+            n = n.next
+        o = []
+        o2 = other.head
+        while o2:
+            o.append(o2)
+            o2 = o2.next
+        return l == 0
 
     def __str__(self) -> str:
         items = []
