@@ -49,14 +49,28 @@ class LinkedList[T](ILinkedList[T]):
 
 
     def insert_before(self, target: T, item: T) -> None:
-        raise NotImplementedError("LinkedList.insert_before is not implemented")
-
-    def insert_after(self, target: T, item: T) -> None:
-        new_node = 
+        new_node = LinkedList.Node(item)
         n = self.head
         while n:
             if n.data == item:
-                
+                n.previous.next = new_node
+                new_node.next = n
+                new_node.previous = n.previous
+                n.previous = new_node
+                self.count += 1
+                return
+
+    def insert_after(self, target: T, item: T) -> None:
+        new_node = LinkedList.Node(item)
+        n = self.head
+        while n:
+            if n.data == item:
+                n.next.previous = new_node
+                new_node.next = n.next
+                new_node.previous = n
+                n.next = new_node
+                self.count += 1
+                return
 
     def remove(self, item: T) -> None:
         n = self.head
