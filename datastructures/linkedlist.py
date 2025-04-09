@@ -36,11 +36,12 @@ class LinkedList[T](ILinkedList[T]):
         self.count += 1
 
     def prepend(self, item: T) -> None:
+        new_node = LinkedList.Node(item)
         if self.count == 0:
             self.tail = self.head = new_node
             self.count += 1
             return
-        new_node = LinkedList.Node(item)
+        
         self.head.previous = new_node
         new_node.next = self.head
         self.head = new_node
