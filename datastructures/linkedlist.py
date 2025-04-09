@@ -125,10 +125,14 @@ class LinkedList[T](ILinkedList[T]):
 
     @property
     def front(self) -> T:
+        if self.count == 0:
+            raise IndexError
         return self.head.data
 
     @property
     def back(self) -> T:
+        if self.count == 0:
+            raise IndexError
         return self.tail.data
 
     @property
