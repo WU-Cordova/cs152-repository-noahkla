@@ -59,6 +59,7 @@ class LinkedList[T](ILinkedList[T]):
                 n.previous = new_node
                 self.count += 1
                 return
+            n = n.next
 
     def insert_after(self, target: T, item: T) -> None:
         new_node = LinkedList.Node(item)
@@ -71,6 +72,7 @@ class LinkedList[T](ILinkedList[T]):
                 n.next = new_node
                 self.count += 1
                 return
+            n = n.next
 
     def remove(self, item: T) -> None:
         n = self.head
@@ -80,6 +82,7 @@ class LinkedList[T](ILinkedList[T]):
                 n.next.previous = n.previous
                 self.count -= 1
                 return
+            n = n.next
 
     def remove_all(self, item: T) -> None:
         n = self.head
@@ -88,6 +91,7 @@ class LinkedList[T](ILinkedList[T]):
                 n.previous.next = n.next
                 n.next.previous = n.previous
                 self.count -= 1
+            n = n.next
 
     def pop(self) -> T:
         if self.count == 0:
@@ -143,6 +147,7 @@ class LinkedList[T](ILinkedList[T]):
         while n:
             if n.data == item:
                 return True
+            n = n.next
         return False
 
     def __iter__(self) -> ILinkedList[T]:
@@ -156,7 +161,10 @@ class LinkedList[T](ILinkedList[T]):
         return self
     
     def __reversed__(self) -> ILinkedList[T]:
-        raise NotImplementedError("LinkedList.__reversed__ is not implemented")
+        l = []
+        n = self.tail
+        while n:
+
     
     def __eq__(self, other: object) -> bool:
         raise NotImplementedError("LinkedList.__eq__ is not implemented")
