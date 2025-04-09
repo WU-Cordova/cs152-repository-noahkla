@@ -161,8 +161,9 @@ class LinkedList[T](ILinkedList[T]):
     def __next__(self) -> T:
         if self.travel_node is None:
             raise StopIteration
+        data = self.travel_node.data
         self.travel_node = self.travel_node.next
-        return self
+        return data
     
     def __reversed__(self) -> ILinkedList[T]:
         l = []
