@@ -107,6 +107,7 @@ class LinkedList[T](ILinkedList[T]):
 
     def clear(self) -> None:
         self.tail = self.head = None
+        self.count = 0
 
     def __contains__(self, item: T) -> bool:
         n = self.head
