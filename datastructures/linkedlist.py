@@ -164,6 +164,9 @@ class LinkedList[T](ILinkedList[T]):
         l = []
         n = self.tail
         while n:
+            l.append(n)
+            n = n.previous
+        return iter(l)
 
     
     def __eq__(self, other: object) -> bool:
