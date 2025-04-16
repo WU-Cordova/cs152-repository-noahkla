@@ -74,8 +74,7 @@ class Deque[T](IQueue[T]):
         Raises:
             - IndexError: If the deque is empty.
         """
-        raise NotImplementedError("Method to get the front item of the deque is not implemented.")
-
+        return self.a.back
     def back(self) -> T:
         """
         Returns the back item of the deque without removing it.
@@ -86,8 +85,7 @@ class Deque[T](IQueue[T]):
         Raises:
             - IndexError: If the deque is empty.
         """
-        raise NotImplementedError("Method to get the back item of the deque is not implemented.")
-
+        return self.a.front
     def empty(self) -> bool:
         """
         Checks if the deque is empty.
@@ -95,8 +93,7 @@ class Deque[T](IQueue[T]):
         Returns:
             - bool: True if the deque is empty, False otherwise.
         """
-        raise NotImplementedError("Method to check if the deque is empty is not implemented.")
-
+        return self.a.empty
     def __len__(self) -> int:
         """
         Returns the number of items in the deque.
@@ -104,8 +101,7 @@ class Deque[T](IQueue[T]):
         Returns:
             - int: The number of items in the deque.
         """
-        raise NotImplementedError("Method to get the length of the deque is not implemented.")
-    
+        return self.a.count    
     def __contains__(self, item: T) -> bool:
         """
         Checks if an item exists in the deque.
@@ -116,8 +112,7 @@ class Deque[T](IQueue[T]):
         Returns:
             - bool: True if the item exists in the deque, False otherwise.
         """
-        raise NotImplementedError("Method to check if an item exists in the deque is not implemented.")
-    
+        return item in self.a    
     def __eq__(self, other) -> bool:
         """
         Compares two deques for equality.
@@ -128,14 +123,12 @@ class Deque[T](IQueue[T]):
         Returns:
             - bool: True if the deques are equal, False otherwise.
         """
-        raise NotImplementedError("Method to compare two deques is not implemented.")
-    
+        return other.a == self.a    
     def clear(self):
         """
         Clears all items from the deque.
         """
-        raise NotImplementedError("Method to clear the deque is not implemented.")
-
+        self.a.clear()
     def __str__(self) -> str:
         """
         Returns a string representation of the deque.
