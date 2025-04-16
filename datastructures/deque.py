@@ -18,7 +18,7 @@ class Deque[T](IQueue[T]):
             - data_type (type): The type of data the deque will hold.
         """
         self.data_type = data_type
-        slef.a = LinkedList(data_type = data_type)
+        self.a = LinkedList(data_type = data_type)
 
     def enqueue(self, item: T) -> None:
         """
@@ -30,8 +30,7 @@ class Deque[T](IQueue[T]):
         Raises:
             - TypeError: If the item is not of the correct type.
         """
-        raise NotImplementedError("Method to add an item to the back of the deque is not implemented.")
-
+        self.a.append(item)
     def dequeue(self) -> T:
         """
         Removes and returns the item from the front of the deque.
@@ -42,8 +41,7 @@ class Deque[T](IQueue[T]):
         Raises:
             - IndexError: If the deque is empty.
         """
-        raise NotImplementedError("Method to remove an item from the front of the deque is not implemented.")
-
+        return self.a.pop_front()
     def enqueue_front(self, item: T) -> None:
         """
         Adds an item to the front of the deque.
@@ -54,8 +52,7 @@ class Deque[T](IQueue[T]):
         Raises:
             - TypeError: If the item is not of the correct type.
         """
-        raise NotImplementedError("Method to add an item to the front of the deque is not implemented.")
-
+        self.a.prepend(item)
     def dequeue_back(self) -> T:
         """
         Removes and returns the item from the back of the deque.
@@ -66,8 +63,7 @@ class Deque[T](IQueue[T]):
         Raises:
             - IndexError: If the deque is empty.
         """
-        raise NotImplementedError("Method to remove an item from the back of the deque is not implemented.")
-
+        return self.a.pop()
     def front(self) -> T:
         """
         Returns the front item of the deque without removing it.
