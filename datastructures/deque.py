@@ -18,7 +18,7 @@ class Deque[T](IQueue[T]):
             - data_type (type): The type of data the deque will hold.
         """
         self.data_type = data_type
-        slef.a = LinkedList(type = data_type)
+        slef.a = LinkedList(data_type = data_type)
 
     def enqueue(self, item: T) -> None:
         """
