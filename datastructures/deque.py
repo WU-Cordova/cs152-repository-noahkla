@@ -143,8 +143,7 @@ class Deque[T](IQueue[T]):
         Returns:
             - str: A string representation of the deque.
         """
-        raise NotImplementedError("Method to get the string representation of the deque is not implemented.")
-    
+        return str(self.a)    
     def __repr__(self) -> str:
         """
         Returns a detailed string representation of the deque.
@@ -152,8 +151,7 @@ class Deque[T](IQueue[T]):
         Returns:
             - str: A detailed string representation of the deque.
         """
-        raise NotImplementedError("Method to get the detailed string representation of the deque is not implemented.")
-
+        return str(self.a)
 
 if __name__ == '__main__':
     filename = os.path.basename(__file__)
