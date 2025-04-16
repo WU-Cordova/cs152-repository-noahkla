@@ -129,7 +129,10 @@ class Deque[T](IQueue[T]):
 
         Returns:
             - bool: True if the deques are equal, False otherwise.
+
         """
+        if not isinstance(other, Deque):
+            return False
         return other.a == self.a    
     def clear(self):
         """
