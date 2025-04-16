@@ -17,7 +17,8 @@ class Deque[T](IQueue[T]):
         Args:
             - data_type (type): The type of data the deque will hold.
         """
-        raise NotImplementedError("Deque initialization is not implemented.")
+        self.data_type = data_type
+        slef.a = LinkedList(type = data_type)
 
     def enqueue(self, item: T) -> None:
         """
