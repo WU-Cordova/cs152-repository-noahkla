@@ -19,6 +19,7 @@ class Deque[T](IQueue[T]):
         """
         self.data_type = data_type
         self.a = LinkedList(data_type = data_type)
+        self.count = 0
 
     def enqueue(self, item: T) -> None:
         """
