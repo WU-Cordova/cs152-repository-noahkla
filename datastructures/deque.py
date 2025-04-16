@@ -147,9 +147,7 @@ class Deque[T](IQueue[T]):
             - str: A detailed string representation of the deque.
         """
         raise NotImplementedError("Method to get the detailed string representation of the deque is not implemented.")
-    @property
-    def count(self):
-        return self.a.count
+
 
 if __name__ == '__main__':
     filename = os.path.basename(__file__)
