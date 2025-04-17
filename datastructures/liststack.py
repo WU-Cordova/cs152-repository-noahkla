@@ -15,7 +15,7 @@ class ListStack(Generic[T], IStack[T]):
        
 
         """
-        self.a = LinkedList(type = data_type)
+        self.a = LinkedList(data_type = data_type)
         self.data_type = data_type
 
     def push(self, item: T):
