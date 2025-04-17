@@ -55,7 +55,7 @@ class ListStack[T](Generic[T], IStack[T]):
         Raises:
             IndexError: If the stack is empty.
         """
-        return self.a.tail
+        return self.a.back
 
     @property
     def empty(self) -> bool:
@@ -125,8 +125,7 @@ class ListStack[T](Generic[T], IStack[T]):
             str: A detailed string representation of the stack.
 
         """
-        raise NotImplementedError("ListStack.__repr__ is not implemented.")
-    
+        return str(self.a)    
 
 if __name__ == '__main__':
     filename = os.path.basename(__file__)
