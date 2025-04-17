@@ -185,7 +185,7 @@ class LinkedList[T](ILinkedList[T]):
         while o2:
             o.append(o2)
             o2 = o2.next
-        return l == 0
+        return l == o
 
     def __str__(self) -> str:
         items = []
