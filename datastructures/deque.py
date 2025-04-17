@@ -44,6 +44,7 @@ class Deque[T](IQueue[T]):
         """
         if self.a.empty:
             raise IndexError
+        print('destacking!')
         return self.a.pop_front()
     def enqueue_front(self, item: T) -> None:
         """
