@@ -178,12 +178,12 @@ class LinkedList[T](ILinkedList[T]):
         l = []
         n = self.head
         while n:
-            l.append(n)
+            l.append(n.data)
             n = n.next
         o = []
         o2 = other.head
         while o2:
-            o.append(o2)
+            o.append(o2.data)
             o2 = o2.next
         print(l, o)
         return l == o
