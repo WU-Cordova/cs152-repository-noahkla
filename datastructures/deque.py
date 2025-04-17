@@ -44,7 +44,6 @@ class Deque[T](IQueue[T]):
         """
         if self.a.empty:
             raise IndexError
-        print('destacking!')
         return self.a.pop_front()
     def enqueue_front(self, item: T) -> None:
         """
@@ -109,6 +108,7 @@ class Deque[T](IQueue[T]):
         Returns:
             - int: The number of items in the deque.
         """
+        print('lengthing!')
         return self.a.count    
     def __contains__(self, item: T) -> bool:
         """
