@@ -118,7 +118,7 @@ class LinkedList[T](ILinkedList[T]):
         else:
             self.head.next.previous = None
             self.head = self.head.next
-        count -= 1
+        self.count -= 1
         return data
 
 

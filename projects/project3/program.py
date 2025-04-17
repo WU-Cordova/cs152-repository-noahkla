@@ -5,7 +5,7 @@ from datastructures.array import Array
 
 
 def main():
-    print('hello world'
+    print('hello world')
    # a.append(5)
   #  print(a)
   #  t = TestArrayStack()
