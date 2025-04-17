@@ -92,7 +92,7 @@ class Deque[T](IQueue[T]):
         Raises:
             - IndexError: If the deque is empty.
         """
-        return self.a.head
+        return self.a.front
     def empty(self) -> bool:
         """
         Checks if the deque is empty.
