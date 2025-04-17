@@ -81,7 +81,7 @@ class Deque[T](IQueue[T]):
         Raises:
             - IndexError: If the deque is empty.
         """
-        return self.a.back
+        return self.a.front
     def back(self) -> T:
         """
         Returns the back item of the deque without removing it.
@@ -92,7 +92,7 @@ class Deque[T](IQueue[T]):
         Raises:
             - IndexError: If the deque is empty.
         """
-        return self.a.front
+        return self.a.back
     def empty(self) -> bool:
         """
         Checks if the deque is empty.
