@@ -132,6 +132,7 @@ class Deque[T](IQueue[T]):
 
         """
         if not isinstance(other, Deque):
+            print('Wrong Type!')
             return False
         return other.a == self.a    
     def clear(self):
