@@ -10,8 +10,12 @@ from datastructures.linkedlist import LinkedList
 class HashMap(IHashMap[KT, VT]):
 
     def __init__(self, number_of_buckets=7, load_factor=0.75, custom_hash_function: Optional[Callable[[KT], int]]=None) -> None:
-        raise NotImplementedError("HashMap.__init__() is not implemented yet.")
-
+        self._buckets: Array[LinkedList(Tuple(KT, VT))] = \
+        Array([starting_sequence=LinkedList(data_type=tu
+                                            data_type=tuple for _ in range(number_of_buckets)]))
+        self.count = 0
+        self._load_factor = load_factor
+        self._hash_function = custom_hash_function or self.default_hash_function
     def __getitem__(self, key: KT) -> VT:
         raise NotImplementedError("HashMap.__getitem__() is not implemented yet.")
 
@@ -31,10 +35,15 @@ class HashMap(IHashMap[KT, VT]):
         raise NotImplementedError("HashMap.__delitem__() is not implemented yet.")
     
     def __contains__(self, key: KT) -> bool:
-        raise NotImplementedError("HashMap.__contains__() is not implemented yet.")
+        bucket_index = self._get_bucket_index(key, len(self._buckets))
+        bucket_chain: LinkedList = self._buckets[bucket_index]
+        for (k, v) in buckets_chain:
+            if k == key:
+                return True
+        return False
     
     def __len__(self) -> int:
-        raise NotImplementedError("HashMap.__len__() is not implemented yet.")
+        return self.count
     
     def __iter__(self) -> Iterator[KT]:
         raise NotImplementedError("HashMap.__iter__() is not implemented yet.")
@@ -63,7 +72,9 @@ class HashMap(IHashMap[KT, VT]):
             key (KT): The key to hash.
         Returns:
             int: The hash value of the key.
+
         """
+        
         try:
             key_bytes = pickle.dumps(key)
         except Exception:
