@@ -37,7 +37,7 @@ class HashMap(IHashMap[KT, VT]):
     def __contains__(self, key: KT) -> bool:
         bucket_index = self._get_bucket_index(key, len(self._buckets))
         bucket_chain: LinkedList = self._buckets[bucket_index]
-        for (k, v) in buckets_chain:
+        for (k, v) im buckets_chain:
             if k == key:
                 return True
         return False
