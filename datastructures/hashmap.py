@@ -11,13 +11,14 @@ class HashMap(IHashMap[KT, VT]):
 
     def __init__(self, number_of_buckets=7, load_factor=0.75, custom_hash_function: Optional[Callable[[KT], int]]=None) -> None:
         self._buckets: Array[LinkedList(Tuple(KT, VT))] = \
-        Array([starting_sequence=LinkedList(data_type=tu
-                                            data_type=tuple for _ in range(number_of_buckets)]))
+        Array([starting_sequence=LinkedList(data_type=[tuple for i in range(number_of_buckets)])])
         self.count = 0
         self._load_factor = load_factor
         self._hash_function = custom_hash_function or self.default_hash_function
     def __getitem__(self, key: KT) -> VT:
-        raise NotImplementedError("HashMap.__getitem__() is not implemented yet.")
+        for (k, y) in self._buckets:
+            if k == key:
+                return v
 
     def __setitem__(self, key: KT, value: VT) -> None:        
         raise NotImplementedError("HashMap.__setitem__() is not implemented yet.")
@@ -56,6 +57,13 @@ class HashMap(IHashMap[KT, VT]):
     
     def __repr__(self) -> str:
         return f"HashMap({str(self)})"
+    def next_prime_after_double(self, n):
+        n = 2*n+1
+        while True:
+            for i in range(2, n):
+                if n%i ==0:
+                    return n
+            n += 1
 
     @staticmethod
     def _default_hash_function(key: KT) -> int:
