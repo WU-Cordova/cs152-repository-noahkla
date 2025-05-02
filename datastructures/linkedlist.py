@@ -203,6 +203,30 @@ class LinkedList[T](ILinkedList[T]):
             items.append(repr(current.data))
             current = current.next
         return f"LinkedList({' <-> '.join(items)}) Count: {self.count}"
+    
+    def __getitem__(self, k):
+        if k > self.count-1 or k<0:
+            raise IndexError
+        n = self.head
+        for i in range(k):
+            n = n.next
+        return n.data
+    def __setitem__(self, k, v):
+        if k > self.count-1 or k<0:
+            raise IndexError
+        n = self.head
+        for i in range(k):
+            n = n.next
+        n.data = v
+    def __delitem__(self, k):
+        if k > self.count-1 or k<0:
+            raise IndexError
+        n = self.head
+        for i in range(k):
+            n = n.next
+        n.previous.next = n.next
+        n.next.previous = n.previous
+        self.count -= 1
 
 
 if __name__ == '__main__':

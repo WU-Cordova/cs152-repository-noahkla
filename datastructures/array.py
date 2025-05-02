@@ -26,10 +26,11 @@ class Array(IArray[T]):
         if not isinstance(T, Sequence):
             raise ValueError
 
+        self.array = np.empty(dtype = data_type, shape = len(T)*2)
+        for j in T:
+            self.array.append(j)
         
-        self.array = np.array(T)
-        
-        self.local_size = 0
+        self.local_size = len(T)
 
     @overload
     def __getitem__(self, index: int) -> T: ...
@@ -51,29 +52,38 @@ class Array(IArray[T]):
     
 
     def append(self, data: T) -> None:
-        np.append(self.array, T)
+        self.array[self.local_size] = data
+        self.local_size += 1
     
 
     def append_front(self, data: T) -> None:
         np.insert(self.array, 0, T)
 
     def pop(self) -> None:
-        np.delete(self.array, -1)
+        self.array[self.local_size -1] = None
+        self.local_size -= 1
     
     def pop_front(self) -> None:
         np.delete(self.array, 0)
 
     def __len__(self) -> int: 
-        return len(self.array)
+        return self.local_size
 
     def __eq__(self, other: object) -> bool:
         raise NotImplementedError('Equality not implemented.')
     
     def __iter__(self) -> Iterator[T]:
-        raise NotImplementedError('Iteration not implemented.')
+        x = []
+        for i in range(self.local_size):
+            x.append(self.array[i])
+        return iter(x)
 
     def __reversed__(self) -> Iterator[T]:
-        self.array = self.array[::-1]
+        x = []
+        for i in range(self.local_size):
+            x.append(self.array[i])
+        x = x[::-1]
+        return iter(x)
 
     def __delitem__(self, index: int) -> None:
         np.delete(self.array, index)

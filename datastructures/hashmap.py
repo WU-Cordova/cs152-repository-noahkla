@@ -4,24 +4,39 @@ from datastructures.ihashmap import KT, VT, IHashMap
 from datastructures.array import Array
 import pickle
 import hashlib
-
+from math import sqrt
 from datastructures.linkedlist import LinkedList
+import numpy as np
 
 class HashMap(IHashMap[KT, VT]):
 
     def __init__(self, number_of_buckets=7, load_factor=0.75, custom_hash_function: Optional[Callable[[KT], int]]=None) -> None:
-        self._buckets: Array[LinkedList(Tuple(KT, VT))] = \
-        Array([starting_sequence=LinkedList(data_type=[tuple for i in range(number_of_buckets)])])
+        self._buckets = np.empty(shape = 7, dtype = LinkedList)
+        for i in range(len(self._buckets)):
+            self._buckets[i] = LinkedList()
+        
+        self.n = number_of_buckets
         self.count = 0
         self._load_factor = load_factor
-        self._hash_function = custom_hash_function or self.default_hash_function
+        self._hash_function = custom_hash_function or self._default_hash_function
     def __getitem__(self, key: KT) -> VT:
-        for (k, y) in self._buckets:
+        hv = self._hash_function(KT)%self.n
+        for (k, v) in self._buckets[hv]:
             if k == key:
                 return v
+        raise KeyError
 
     def __setitem__(self, key: KT, value: VT) -> None:        
-        raise NotImplementedError("HashMap.__setitem__() is not implemented yet.")
+        hv = self._hash_function(KT)%self.n
+        for i in range(len(self._buckets[hv])):
+            if self._buckets[hv][i][0] == key:
+                self._buckets[hv][i] = (key, value)
+                return
+        self._buckets[hv].append((key, value))
+        self.count += 1
+        if self.count > self._load_factor*self.n:
+            self.resize(self.next_prime_after_double(self.n))
+
 
     def keys(self) -> Iterator[KT]:
         raise
@@ -33,12 +48,20 @@ class HashMap(IHashMap[KT, VT]):
         raise NotImplementedError("HashMap.items() is not implemented yet.")
             
     def __delitem__(self, key: KT) -> None:
-        raise NotImplementedError("HashMap.__delitem__() is not implemented yet.")
+        if key>self.count-1:
+            raise KeyError
+        hv = self._hash_function(KT)%self.n
+        for i in range(len(self._buckets[hv])):
+            print(i, len(self._buckets[hv]))
+            if self._buckets[hv][i][0] == key:
+                del self._buckets[hv][i]
+                self.count -= 1
+        
     
     def __contains__(self, key: KT) -> bool:
-        bucket_index = self._get_bucket_index(key, len(self._buckets))
-        bucket_chain: LinkedList = self._buckets[bucket_index]
-        for (k, v) im buckets_chain:
+        bucket_index = self._hash_function(KT)%self.n
+        bucket_chain = self._buckets[bucket_index]
+        for (k, v) in bucket_chain:
             if k == key:
                 return True
         return False
@@ -47,7 +70,12 @@ class HashMap(IHashMap[KT, VT]):
         return self.count
     
     def __iter__(self) -> Iterator[KT]:
-        raise NotImplementedError("HashMap.__iter__() is not implemented yet.")
+        keys = []
+        for b in self._buckets:
+            for h in b:
+                keys.append(h[0])
+        keys.sort()
+        return iter(keys)
     
     def __eq__(self, other: object) -> bool:
         raise NotImplementedError("HashMap.__eq__() is not implemented yet.")
@@ -60,10 +88,21 @@ class HashMap(IHashMap[KT, VT]):
     def next_prime_after_double(self, n):
         n = 2*n+1
         while True:
-            for i in range(2, n):
+            c = True
+            for i in range(2, int(sqrt(n))+1):
                 if n%i ==0:
-                    return n
+                    c = False
+            if c:
+                return n
             n += 1
+    def resize(self, s):
+        h = HashMap(number_of_buckets=s)
+        for b in self._buckets:
+            for (k, v) in b:
+                h[k] = v
+        self._buckets = h._buckets
+        self.count = h.count
+        self.n = h.n
 
     @staticmethod
     def _default_hash_function(key: KT) -> int:
