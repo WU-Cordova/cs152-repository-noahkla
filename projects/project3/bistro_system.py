@@ -31,8 +31,8 @@ class bistro_system:
       #  print('Drink Name \t Qty Sold \t Total Sales')
         for item in self.menu:
             item = self.menu[item]
-            print(item.name+'\t''Quanitity sold: '+str(item.qs)+'\t''Total Sales: '+str(item.qs*item.price))
-        print('Total Revenue: \t \t'+ str(self.r))
+            print(item.name+'\t''Quanitity sold: '+str(item.qs)+'\t''Total Sales: $'+str(item.qs*item.price))
+        print('Total Revenue: $'+ str(self.r))
     
     def print_orders(self):
         for o in self.orders:
@@ -53,11 +53,14 @@ class bistro_system:
             if x == '2':
                 print('Enter what you want:')
                 y = input()
+                if y not in self.menu:
+                    print('This is not in the menu. Try Again!')
+                    continue
                 print('What size do you want it?')
                 s = input()
                 print ('Any custom instructions?')
                 z = input()
-                print('what is you name?')
+                print('what is your name?')
                 p = input()
                 c = custom_order(p)
                 c.add_item(self.menu[y], size = s, customization=z)

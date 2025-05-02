@@ -15,7 +15,7 @@ class custom_order:
     def print_order(self):
         for item in self.order:
             print('item: '+ item.name)
-            print('cost: '+ str(item.price))
+            print('cost: $'+ str(item.price))
             print('size: ' + str(self.s))
             print('customization: '+self.c)
             print('name: '+ self.name)
