@@ -34,8 +34,8 @@ class HashMap(IHashMap[KT, VT]):
                 return
         self._buckets[hv].append((key, value))
         self.count += 1
-        if self.count > self._load_factor*self.n:
-            self.resize(self.next_prime_after_double(self.n))
+       # if self.count > self._load_factor*self.n:
+           # self.resize(self.next_prime_after_double(self.n))
 
 
     def keys(self) -> Iterator[KT]:
