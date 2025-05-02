@@ -1,5 +1,5 @@
 from datastructures.linkedlist import LinkedList
-from drink import drink
+from projects.project3.drink import drink
 class custom_order:
     def __init__(self):
         self.order = LinkedList(data_type=drink)
