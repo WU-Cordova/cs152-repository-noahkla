@@ -2,7 +2,7 @@ from datastructures.circularqueue import CircularQueue
 from datastructures.arraystack import ArrayStack
 from tests.test_arraystack import TestArrayStack, stack
 from datastructures.array import Array
-from bistro_system import bistro_system
+from project3 import bistro_system
 
 
 def main():
