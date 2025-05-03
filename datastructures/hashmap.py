@@ -48,8 +48,7 @@ class HashMap(IHashMap[KT, VT]):
         raise NotImplementedError("HashMap.items() is not implemented yet.")
             
     def __delitem__(self, key: KT) -> None:
-        if key>self.count-1:
-            raise KeyError
+      
         hv = self._hash_function(KT)%self.n
         for i in range(len(self._buckets[hv])):
             print(i, len(self._buckets[hv]))
