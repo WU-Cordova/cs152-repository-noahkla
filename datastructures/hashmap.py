@@ -56,6 +56,7 @@ class HashMap(IHashMap[KT, VT]):
             if self._buckets[hv][i][0] == key:
                 del self._buckets[hv][i]
                 self.count -= 1
+                return
         raise KeyError
         
     

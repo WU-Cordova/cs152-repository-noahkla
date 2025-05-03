@@ -60,6 +60,7 @@ class LinkedList[T](ILinkedList[T]):
                 self.count += 1
                 return
             n = n.next
+        
 
     def insert_after(self, target: T, item: T) -> None:
         new_node = LinkedList.Node(item)
